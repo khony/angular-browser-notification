@@ -13,7 +13,7 @@ function BrowserNotification ($timeout, $window) {
   }
 
   var notificationTimeout = {
-    show: showNotification,
+    show: show,
     close: closeNotification,
     notification: {}
   }
@@ -22,7 +22,7 @@ function BrowserNotification ($timeout, $window) {
     return notificationTimeout.notification.close()
   }
 
-  function showNotification (title= "", options= {}, timeout = 5000) {
+  function show (title= "", options= {}, timeout = 5000) {
     if (!$window.Notification) 
         return
     $window.Notification.requestPermission(function (res) {
