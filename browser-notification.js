@@ -22,7 +22,17 @@ function BrowserNotification ($timeout, $window) {
     return notificationTimeout.notification.close()
   }
 
-  function show (title= "", options= {}, timeout = 5000) {
+  function show (title, options, timeout) {
+    if (title=== undefined) {
+      title=""
+    }
+    if (options=== undefined){
+      options={}
+    }
+    if (timeout===undefined){
+      timeout = 5000
+    }
+    
     if (!$window.Notification) 
         return
     $window.Notification.requestPermission(function (res) {
